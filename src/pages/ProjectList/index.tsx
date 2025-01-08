@@ -1,12 +1,12 @@
-import ListCard from 'features/ProjectCard/ListCard';
-import ListTable from 'features/ProjectsList/ListTable';
+import ListCard from "./ListCard";
+import ListTable from "./ListTable";
 
 const ProjectList = () => (
   <>
-    <div className='hidden lg:block'>
+    <div className="hidden lg:block">
       <ListTable />
     </div>
-    <div className='block lg:hidden'>
+    <div className="block lg:hidden">
       <ListCard />
     </div>
   </>

@@ -29,7 +29,7 @@ const ListCard = () => {
               {project.name}
               <Button
                 icon={<EditOutlined />}
-                onClick={() => navigate(`/details/${project.id}`)}
+                onClick={() => navigate(`/projects/${project.id}/edit`)}
                 className=" text-black  transition  float-right mr-4"
               >
                 Edit

@@ -1,18 +1,18 @@
-import { Layout } from 'antd';
-import { Outlet, useLocation, Navigate } from 'react-router-dom';
-import styled from 'styled-components';
-import SideBar from './SideBar';
+import { Layout } from "antd";
+import { Outlet, useLocation, Navigate } from "react-router-dom";
+import styled from "styled-components";
+import SideBar from "./SideBar";
 
 const { Content } = Layout;
 
 const MainLayout = () => {
   const location = useLocation();
-  if (location.pathname === '/') return <Navigate to='app' />;
+  if (location.pathname === "/") return <Navigate to="app" />;
 
   return (
     <StyledLayout>
       <SideBar />
-      <InnerLayout id='content_layout'>
+      <InnerLayout id="content_layout">
         <StyledContent>
           <Outlet />
         </StyledContent>
