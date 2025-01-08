@@ -14,6 +14,15 @@ const ListCard = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 [&_.ant-card-body]:p-0">
+      <div className="flex-1 -mb-2">
+        <Button
+          type="primary"
+          className="float-end"
+          onClick={() => navigate("/projects/new")}
+        >
+          Create Project
+        </Button>
+      </div>
       {data?.map((project) => (
         <Card
           key={project.id}
