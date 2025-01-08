@@ -6,9 +6,10 @@ import DATE_FORMAT from "constants/dateFormat";
 import { useNavigate } from "react-router-dom";
 import Button from "component/ui/Button";
 import Typography from "component/ui/Typography";
+import Icon from "component/ui/Icons";
 
 const ListCard = () => {
-  const { data } = useProject();
+  const { data, updateProject } = useProject();
   const navigate = useNavigate();
 
   return (
@@ -18,22 +19,45 @@ const ListCard = () => {
           key={project.id}
           loading={false}
           actions={[]}
+          onClick={() => navigate(`/projects/${project.id}`)}
           className="cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition min-w-[250px]"
         >
           <div className="rounded-t-lg px-4 pt-3 border-b">
             <Typography
               typographyType="title"
               level={4}
-              className="text-white text-base font-semibold"
+              className="flex justify-between text-white text-base font-semibold"
             >
               {project.name}
-              <Button
-                icon={<EditOutlined />}
-                onClick={() => navigate(`/projects/${project.id}/edit`)}
-                className=" text-black  transition  float-right mr-4"
-              >
-                Edit
-              </Button>
+              <div className="flex">
+                <Button
+                  icon={<EditOutlined />}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/projects/${project.id}/edit`);
+                  }}
+                  className=" text-black  transition  float-right mr-4"
+                >
+                  Edit
+                </Button>
+                <Button
+                  type="link"
+                  className="p-0"
+                  onClick={() =>
+                    updateProject(
+                      { id: project?.id, favourite: !project.favourite },
+                      () => {},
+                      true
+                    )
+                  }
+                >
+                  <Icon
+                    name={
+                      project?.favourite ? "fillBookmark" : "unfillBookmark"
+                    }
+                  />
+                </Button>
+              </div>
             </Typography>
           </div>
 
