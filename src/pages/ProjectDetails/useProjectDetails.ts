@@ -40,7 +40,7 @@ const useProjectDetails = () => {
   const updateFavoriteState = async () => {
     setLoading(true);
     updateProject(
-      { id, favourite: !projectDetails?.favourite },
+      { id, isFavorite: !projectDetails?.isFavorite },
       () => {},
       true
     );

@@ -12,7 +12,7 @@ const data: Partial<ProjectData>[] = [
     endDate: "2025-12-31",
     projectManager: "John Doe",
     description: "Test Project A",
-    favourite: true,
+    isFavorite: true,
   },
   {
     id: "project_b",
@@ -21,7 +21,7 @@ const data: Partial<ProjectData>[] = [
     endDate: "2025-11-30",
     projectManager: "Alice Smith",
     description: "Test Project B",
-    favourite: true,
+    isFavorite: true,
   },
   {
     id: "project_c",
@@ -30,7 +30,7 @@ const data: Partial<ProjectData>[] = [
     endDate: "2025-10-31",
     projectManager: "Bob Johnson",
     description: "Test Project C",
-    favourite: false,
+    isFavorite: false,
   },
   {
     id: "project_d",
@@ -39,7 +39,7 @@ const data: Partial<ProjectData>[] = [
     endDate: "2025-09-30",
     projectManager: "Charlie Lee",
     description: "Test Project D",
-    favourite: false,
+    isFavorite: false,
   },
   {
     id: "project_e",
@@ -48,7 +48,7 @@ const data: Partial<ProjectData>[] = [
     endDate: "2025-08-31",
     projectManager: "David Harris",
     description: "Test Project E",
-    favourite: false,
+    isFavorite: false,
   },
   {
     id: "project_f",
@@ -57,7 +57,7 @@ const data: Partial<ProjectData>[] = [
     endDate: "2025-07-31",
     projectManager: "Eve Williams",
     description: "Test Project F",
-    favourite: false,
+    isFavorite: false,
   },
   {
     id: "project_g",
@@ -66,7 +66,7 @@ const data: Partial<ProjectData>[] = [
     endDate: "2025-06-30",
     projectManager: "Frank Davis",
     description: "Test Project G",
-    favourite: false,
+    isFavorite: false,
   },
 ];
 
@@ -90,11 +90,11 @@ const fetchData = (id?: string) => {
 
 const updateProjectDetails = ({
   variables,
-  favouriteChange,
+  shouldUpdateFavorite,
 }: UpdateProjectDetailsArg) => {
   const { id, ...updatedProjectData } = variables;
   return new Promise((resolve, reject) => {
-    const isSuccess = favouriteChange ? true : Math.random() > 0.2;
+    const isSuccess = shouldUpdateFavorite ? true : Math.random() > 0.2;
     const projectIndex = data.findIndex((project) => project.id === id);
     setTimeout(() => {
       if (projectIndex === -1) {

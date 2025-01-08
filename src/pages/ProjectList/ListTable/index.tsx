@@ -56,16 +56,16 @@ const ListTable = () => {
     },
     {
       key: "favourite",
-      render: (_, { id, favourite }) => (
+      render: (_, { id, isFavorite }) => (
         <div className="flex items-center gap-2">
           <Button
             type="link"
             className="p-0"
             onClick={() =>
-              updateProject({ id, favourite: !favourite }, () => {}, true)
+              updateProject({ id, isFavorite: !isFavorite }, () => {}, true)
             }
           >
-            <Icon name={favourite ? "fillBookmark" : "unfillBookmark"} />
+            <Icon name={isFavorite ? "fillBookmark" : "unfillBookmark"} />
           </Button>
           <Button
             type="primary"

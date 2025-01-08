@@ -5,12 +5,12 @@ export interface ProjectData {
   endDate: string;
   projectManager: string;
   description: string;
-  favourite?: boolean;
+  isFavorite?: boolean;
 }
 
 export interface UpdateProjectDetailsArg {
   variables: Partial<ProjectData>;
-  favouriteChange?: boolean;
+  shouldUpdateFavorite?: boolean;
 }
 
 export interface CreateProjectDetailsArg {

@@ -16,7 +16,7 @@ const ProjectDetails = () => {
     endDate,
     projectManager,
     description,
-    favourite,
+    isFavorite,
   } = projectDetails || {};
 
   if (loading) return <LoadingPage />;
@@ -41,7 +41,7 @@ const ProjectDetails = () => {
             className="p-0 absolute -top-10 md:top-0 right-0"
             onClick={updateFavoriteState}
           >
-            <Icon name={favourite ? "fillBookmark" : "unfillBookmark"} />
+            <Icon name={isFavorite ? "fillBookmark" : "unfillBookmark"} />
           </Button>
         </FormItem>
         <FormItem
