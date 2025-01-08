@@ -11,10 +11,10 @@ const ProjectDetailsForm = ({ flowType }: { flowType: "edit" | "create" }) => {
     form,
     id,
     loading,
+    isFieldChange,
     navigate,
     onSubmitHandler,
     setIsFieldChanged,
-    isFieldChange,
   } = useProjectDetailsForm(flowType);
   if (loading) return <LoadingPage />;
   return (

@@ -16,7 +16,7 @@ export interface ProjectContextProps {
   updateProject: (
     variable: Partial<Project>,
     callback?: () => void,
-    favouriteChange?: boolean
+    shouldUpdateFavorite?: boolean
   ) => void;
   createProject: (variable: Partial<Project>, callback: () => void) => void;
   favoriteProjects?: Pick<Project, "id" | "name">[];
@@ -59,14 +59,14 @@ export const ProjectProvider = ({
   const updateProject = (
     variables: Partial<Project>,
     callback?: () => void,
-    favouriteChange?: boolean
+    shouldUpdateFavorite?: boolean
   ) => {
     setLoading(true);
-    updateProjectDetails({ variables, favouriteChange })
+    updateProjectDetails({ variables, shouldUpdateFavorite })
       .then(() => {
-        const message = favouriteChange
+        const message = shouldUpdateFavorite
           ? `Project ${
-              variables?.favourite ? "added as" : "removed as"
+              variables?.isFavorite ? "added as" : "removed as"
             } favourite successfully.`
           : "Project updated successfully.";
         notification.success({ message: message });
@@ -92,7 +92,7 @@ export const ProjectProvider = ({
       });
   };
 
-  const favoriteProjects = data.filter((item) => item.favourite);
+  const favoriteProjects = data.filter((item) => item.isFavorite);
 
   useEffect(() => {
     fetchProjectsData();
@@ -103,8 +103,8 @@ export const ProjectProvider = ({
       value={{
         data,
         loading,
-        fetchProjectsData,
         favoriteProjects,
+        fetchProjectsData,
         updateProject,
         createProject,
       }}
