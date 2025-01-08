@@ -26,66 +26,65 @@ const ProjectDetails = () => {
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         className="max-w-[600px] min-w-[203px]"
-        autoComplete="off"
       >
         <FormItem
-          label="Project ID"
+          label="Project ID:"
           name="id"
-          className="pb-0"
+          className="pb-0 relative flex-row font-bold justify-between align-center"
           colon={false}
-          required={false}
         >
           <div className="flex items-center justify-between">
-            <Typography>{id}</Typography>
-            <Button type="link" className="p-0" onClick={updateFavoriteState}>
-              <Icon name={favourite ? "fillBookmark" : "unfillBookmark"} />
-            </Button>
+            <Typography className="font-normal">{id}</Typography>
           </div>
+          <Button
+            type="link"
+            className="p-0 absolute -top-10 md:top-0 right-0"
+            onClick={updateFavoriteState}
+          >
+            <Icon name={favourite ? "fillBookmark" : "unfillBookmark"} />
+          </Button>
         </FormItem>
         <FormItem
-          label="Project Name"
+          label="Project Name:"
           name="name"
           colon={false}
-          className="pb-0"
-          required={false}
+          className="pb-0 font-bold"
         >
-          <Typography>{name}</Typography>
+          <Typography className="font-normal">{name}</Typography>
         </FormItem>
 
         <FormItem
-          label="Description"
+          label="Description:"
+          className="font-bold"
           name="description"
           colon={false}
-          required={false}
         >
-          <Typography>{description}</Typography>
+          <Typography className="font-normal">{description}</Typography>
         </FormItem>
 
         <FormItem
-          className="[&_.ant-picker]:w-full pb-0"
-          label="Start Date"
+          className="[&_.ant-picker]:w-full pb-0 font-bold"
+          label="Start Date:"
           name="startDate"
           colon={false}
-          required={false}
         >
-          <Typography>{startDate}</Typography>
+          <Typography className="font-normal">{startDate}</Typography>
         </FormItem>
         <FormItem
-          className="[&_.ant-picker]:w-full"
-          label="End Date"
+          className="[&_.ant-picker]:w-full font-bold"
+          label="End Date:"
           name="endDate"
           colon={false}
-          required={false}
         >
-          <Typography>{endDate}</Typography>
+          <Typography className="font-normal">{endDate}</Typography>
         </FormItem>
         <FormItem
-          label="Project Manager"
+          className="font-bold"
+          label="Project Manager:"
           name="projectManager"
           colon={false}
-          required={false}
         >
-          <Typography>{projectManager}</Typography>
+          <Typography className="font-normal">{projectManager}</Typography>
         </FormItem>
         <FormItem className="flex md:ml-[120px] [&_.ant-col]:m-0">
           <div className="flex gap-6">
