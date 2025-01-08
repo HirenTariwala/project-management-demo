@@ -5,4 +5,5 @@ export interface Project {
   endDate: string;
   projectManager: string;
   description: string;
+  favourite: boolean;
 }
