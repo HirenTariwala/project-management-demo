@@ -45,7 +45,7 @@ const ListCard = () => {
                   className="p-0"
                   onClick={() =>
                     updateProject(
-                      { id: project?.id, favourite: !project.favourite },
+                      { id: project?.id, isFavorite: !project.isFavorite },
                       () => {},
                       true
                     )
@@ -53,7 +53,7 @@ const ListCard = () => {
                 >
                   <Icon
                     name={
-                      project?.favourite ? "fillBookmark" : "unfillBookmark"
+                      project?.isFavorite ? "fillBookmark" : "unfillBookmark"
                     }
                   />
                 </Button>

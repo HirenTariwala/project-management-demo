@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
 import Button from "..";
 
 describe("Button Component", () => {
@@ -10,9 +11,16 @@ describe("Button Component", () => {
   });
 
   it("should be disabled when disabled prop is true", () => {
-    render(<Button disabled>Click Me</Button>);
+    const handleClick = jest.fn();
+    render(
+      <Button disabled onClick={handleClick}>
+        Click Me
+      </Button>
+    );
     const button = screen.getByRole("button", { name: "Click Me" });
     expect(button).toBeDisabled();
+    userEvent.click(button);
+    expect(handleClick).not.toHaveBeenCalled();
   });
 
   it("renders with correct button type class", () => {

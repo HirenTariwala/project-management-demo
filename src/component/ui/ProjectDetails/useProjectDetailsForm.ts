@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { App as AntdApp } from "antd";
 import { useForm } from "antd/es/form/Form";
 import DATE_FORMAT from "constants/dateFormat";
@@ -51,6 +52,7 @@ const useProjectDetailsForm = (flow: "edit" | "create") => {
           notification.error({
             message: error,
           });
+          navigate("/projects");
         });
     }
   }, [data, form, id, notification]);
